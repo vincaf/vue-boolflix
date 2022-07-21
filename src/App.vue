@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import HeaderWeb from './components/HeaderWeb.vue'
-import MainWeb from './components/MainWeb.vue'
+import HeaderWeb from './components/HeaderWeb.vue';
+import MainWeb from './components/MainWeb.vue';
 
 export default {
   name: 'App',
@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~bootstrap/scss/bootstrap.scss";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
