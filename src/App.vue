@@ -8,12 +8,34 @@
 <script>
 import HeaderWeb from './components/HeaderWeb.vue';
 import MainWeb from './components/MainWeb.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
+
   components: {
     HeaderWeb,
     MainWeb,
+  },
+
+  data: function(){
+        return{
+            moviesList: [],
+        }
+  },
+
+  methods:{
+      getMovies(){
+          axios.get('')
+          .then((result) => {
+              // console.log(result.data.response)
+              this.musicAlbumList = result.data.response;
+              console.log(this.musicAlbumList);
+          })
+          .catch((error) => {
+              console.warn(error);
+          })
+      },
   }
 }
 </script>
