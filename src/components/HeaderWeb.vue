@@ -3,12 +3,12 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand">BOOLFLIX</a>
-        <form class="d-flex">
+        <div class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
-            v-model.trim="searchInput" @keyup="$emit('search', searchInput)">
+            v-model.trim="searchInput" @keyup.enter="$emit('search', searchInput)">
           <button class="btn btn-outline-success" type="submit"
             @click.prevent="$emit('search', searchInput)">Search</button>
-        </form>
+        </div>
       </div>
     </nav>
   </header>

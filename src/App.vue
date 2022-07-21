@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderWeb />
+    <HeaderWeb @search="getMovies" />
     <MainWeb />
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 import HeaderWeb from './components/HeaderWeb.vue';
 import MainWeb from './components/MainWeb.vue';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: 'App',
@@ -25,16 +25,8 @@ export default {
   },
 
   methods:{
-      getMovies(){
-          axios.get('')
-          .then((result) => {
-              // console.log(result.data.response)
-              this.musicAlbumList = result.data.response;
-              console.log(this.musicAlbumList);
-          })
-          .catch((error) => {
-              console.warn(error);
-          })
+      getMovies(search){
+        console.log(search);
       },
   }
 }
