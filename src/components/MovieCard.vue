@@ -5,6 +5,7 @@
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
         <li><strong>Lingua:</strong> <lang-flag :iso='movie.original_language' /></li>
         <li><strong>Voto:</strong> {{ movie.vote_average }}</li>
+        <li><strong>Tipo:</strong> {{ movie.media_type }}</li>
     </ul>
   </div>
 </template>
