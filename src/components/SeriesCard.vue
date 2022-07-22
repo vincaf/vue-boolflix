@@ -7,7 +7,10 @@
         <li><strong>Titolo:</strong> {{ serie.name }}</li>
         <li><strong>Titolo originale:</strong> {{ serie.original_name }}</li>
         <li><strong>Lingua:</strong> <lang-flag :iso='serie.original_language' /></li>
-        <li><strong>Voto:</strong> {{ getIntegerVote(serie.vote_average) }}</li>
+        <li><strong>Voto:</strong>
+            <i v-for="vote in getIntegerVote(serie.vote_average)" :key="vote" class="fa-solid fa-star ms-1 text-warning"></i>
+            <span class="ms-1" v-if="serie.vote_average == 0">Non disponibile</span>
+        </li>
         <li><strong>Tipo:</strong> {{ serie.media_type }}</li>
     </ul>
   </div>

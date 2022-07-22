@@ -7,7 +7,10 @@
         <li><strong>Titolo:</strong> {{ movie.title }}</li>
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
         <li><strong>Lingua:</strong> <lang-flag :iso='movie.original_language' /></li>
-        <li><strong>Voto:</strong> {{ getIntegerVote(movie.vote_average) }}</li>
+        <li><strong>Voto:</strong>
+            <i v-for="vote in getIntegerVote(movie.vote_average)" :key="vote" class="fa-solid fa-star ms-1 text-warning"></i>
+            <span class="ms-1" v-if="movie.vote_average == 0">Non disponibile</span>
+        </li>
         <li><strong>Tipo:</strong> {{ movie.media_type }}</li>
     </ul>
   </div>
