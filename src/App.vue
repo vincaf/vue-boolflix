@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderWeb @search="getMovies" />
-    <MainWeb :movies="moviesList"/>
+    <MainWeb :movies="moviesList" :series="seriesList" />
   </div>
 </template>
 
@@ -31,6 +31,8 @@ export default {
   methods:{
     getMovies(search){
       console.log(search);
+      this.moviesList = [];
+      this.seriesList = [],
 
       axios.get(`${this.apiUrl}?api_key=${this.apiKey}&language=it-IT&query=${search}`)
       .then( (result) => {
