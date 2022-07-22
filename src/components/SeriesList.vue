@@ -1,18 +1,18 @@
 <template>
   <div class="d-flex flex-wrap justify-content-center">
-    <MovieCard class="m-4" :movie="movie" v-for="(movie, index) in movies" :key="index" />
+    <SeriesCard class="m-4" :serie="serie" v-for="(serie, index) in series" :key="index" />
   </div>
 </template>
 
 <script>
-import MovieCard from './MovieCard.vue'
+import SeriesCard from './SeriesCard.vue'
 export default {
-    name: 'MoviesList',
+    name: 'SeriesList',
     components: {
-        MovieCard,
+        SeriesCard,
     },
     props: {
-        'movies': {
+        'series': {
             required: true,
             type: Array,
         } 
