@@ -1,7 +1,10 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center">
-    <MovieCard class="m-4" :movie="movie" v-for="(movie, index) in movies" :key="index" />
-  </div>
+  <section>
+    <span class="p-2 fs-1 bg-primary text-white">MOVIES</span>
+    <div class="container d-flex flex-wrap">
+      <MovieCard class="m-4" :movie="movie" v-for="(movie, index) in movies" :key="index" />
+    </div>
+  </section>
 </template>
 
 <script>
