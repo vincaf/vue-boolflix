@@ -10,8 +10,15 @@
 </template>
 
 <script>
+import LangFlag from 'vue-lang-code-flags';
+
 export default {
     name: 'MovieCard',
+
+    components: {
+        LangFlag,
+    },
+
     props: {
         'movie': {
             required: true,
