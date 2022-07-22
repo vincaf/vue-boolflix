@@ -1,7 +1,7 @@
 <template>
   <section>
     <span class="p-2 fs-1 bg-primary text-white">TV SERIES</span>
-    <div class="container d-flex flex-wrap">
+    <div class="container d-flex overflow-auto">
       <SeriesCard class="m-4" :serie="serie" v-for="(serie, index) in series" :key="index" />
     </div>
   </section>
