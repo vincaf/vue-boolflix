@@ -1,6 +1,9 @@
 <template>
   <div class="col-2">
     <ul>
+        <li>
+            <img class="w-100" :src="`${this.imgUrl}${movie.poster_path}`" :alt="movie.title">
+        </li>
         <li><strong>Titolo:</strong> {{ movie.title }}</li>
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
         <li><strong>Lingua:</strong> <lang-flag :iso='movie.original_language' /></li>
@@ -18,6 +21,12 @@ export default {
 
     components: {
         LangFlag,
+    },
+
+    data: function(){
+    return{
+        imgUrl: 'https://image.tmdb.org/t/p/w342/',
+        }
     },
 
     props: {
