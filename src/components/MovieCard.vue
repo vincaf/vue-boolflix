@@ -6,7 +6,10 @@
         </li>
         <li><strong>Titolo:</strong> {{ movie.title }}</li>
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
-        <li><strong>Lingua:</strong> <lang-flag :iso='movie.original_language' /></li>
+        <li v-if="(supportedLanguage.includes(movie.original_language))">
+            <strong>Lingua:</strong> <lang-flag :iso="movie.original_language"/>
+        </li>
+        <li v-else><strong>Lingua:</strong> {{ movie.original_language }}</li>
         <li><strong>Voto:</strong>
             <i v-for="vote in getIntegerVote(movie.vote_average)" :key="vote" class="fa-solid fa-star ms-1 text-warning"></i>
             <span class="ms-1" v-if="movie.vote_average == 0">Non disponibile</span>
@@ -29,6 +32,10 @@ export default {
     data: function(){
     return{
         imgUrl: 'https://image.tmdb.org/t/p/w342/',
+
+        supportedLanguage: [
+                'am', 'az', 'be', 'bn', 'bg', 'zh', 'ca', 'cs', 'en', 'et', 'fr', 'de', 'ha', 'hi', 'hu', 'it', 'ja', 'jv', 'km', 'ko', 'lv', 'ms', 'mr', 'fa', 'pl', 'pt', 'ro', 'ru', 'es', 'sw', 'ta', 'te', 'th', 'tr', 'uz', 'vi',
+            ],
         }
     },
 

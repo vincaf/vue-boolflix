@@ -74,14 +74,14 @@ body{
 }
 
 ::-webkit-scrollbar {
-height: 2px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #282828;
+  background: #282828;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #707070;
+  background: #707070;
 }
 </style>
