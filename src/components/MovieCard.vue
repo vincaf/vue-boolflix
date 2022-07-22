@@ -7,7 +7,7 @@
         <li><strong>Titolo:</strong> {{ movie.title }}</li>
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
         <li><strong>Lingua:</strong> <lang-flag :iso='movie.original_language' /></li>
-        <li><strong>Voto:</strong> {{ movie.vote_average }}</li>
+        <li><strong>Voto:</strong> {{ getIntegerVote(movie.vote_average) }}</li>
         <li><strong>Tipo:</strong> {{ movie.media_type }}</li>
     </ul>
   </div>
@@ -35,6 +35,12 @@ export default {
             type: Object,
         } 
     },
+
+    methods:{
+        getIntegerVote(vote){
+            return Math.round(vote / 2);
+        }
+    }
 }
 </script>
 
