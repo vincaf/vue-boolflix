@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderWeb @search="getMovies" />
+    <HeaderWeb @search="getMedias" />
     <MainWeb :movies="moviesList" :series="seriesList" />
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
   },
 
   methods:{
-    getMovies(search){
+    getMedias(search){
       console.log(search);
       this.moviesList = [];
       this.seriesList = [],
