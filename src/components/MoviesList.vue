@@ -1,6 +1,6 @@
 <template>
   <section>
-    <span class="p-2 fs-1 bg-primary text-white">MOVIES</span>
+    <span class="p-2 fs-1 bg-dark text-white">MOVIES</span>
     <div class="container d-flex overflow-auto">
       <MovieCard class="m-4" :movie="movie" v-for="(movie, index) in movies" :key="index" />
     </div>

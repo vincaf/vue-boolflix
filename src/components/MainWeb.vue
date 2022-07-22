@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <MoviesList :movies="movies" />
-                <SeriesList :series="series" />
+                <MoviesList class="py-4" :movies="movies" />
+                <SeriesList class="py-4" :series="series" />
             </div>
         </div>
     </div>
