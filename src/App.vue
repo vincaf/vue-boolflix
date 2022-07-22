@@ -67,4 +67,21 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body{
+  background-color: #434343;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+height: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #282828;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #707070;
+}
 </style>
