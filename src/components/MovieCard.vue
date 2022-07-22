@@ -3,7 +3,7 @@
     <ul>
         <li><strong>Titolo:</strong> {{ movie.title }}</li>
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
-        <li><strong>Lingua:</strong> {{ movie.original_language }}</li>
+        <li><strong>Lingua:</strong> <lang-flag :iso='movie.original_language' /></li>
         <li><strong>Voto:</strong> {{ movie.vote_average }}</li>
     </ul>
   </div>
