@@ -21,20 +21,18 @@ export default {
   data: function(){
     return{
         moviesList: [],
-        apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=59c53a96f763c9716248c35c07d50ee0&language=it-IT&query=',
+        apiKey: '88ad43231db09cad59cba4c08bf2d037',
+        apiUrl: 'https://api.themoviedb.org/3/search/movie',
     }
   },
 
   methods:{
     getMovies(search){
       console.log(search);
-      this.apiUrl = this.apiUrl + search;
-      console.log(this.apiUrl);
-      axios.get(this.apiUrl)
+      axios.get(`${this.apiUrl}?api_key=${this.apiKey}&language=it-IT&query=${search}`)
       .then( (result) => {
         this.moviesList = result.data.results;
         console.log(this.moviesList);
-        this.apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=59c53a96f763c9716248c35c07d50ee0&language=it-IT&query=';
       })
       .catch((error) => {
         console.warn(error);
