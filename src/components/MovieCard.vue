@@ -1,9 +1,7 @@
 <template>
-  <div class="col-2">
-    <ul>
-        <li>
-            <img class="w-100" :src="`${this.imgUrl}${movie.poster_path}`" :alt="movie.title">
-        </li>
+  <div id="MovieCard" class="col-2">
+    <img class="w-100" :src="`${this.imgUrl}${movie.poster_path}`" :alt="movie.title">
+    <ul class="list-unstyled">
         <li><strong>Titolo:</strong> {{ movie.title }}</li>
         <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
         <li v-if="(supportedLanguage.includes(movie.original_language))">
@@ -14,7 +12,7 @@
             <i v-for="vote in getIntegerVote(movie.vote_average)" :key="vote" class="fa-solid fa-star ms-1 text-warning"></i>
             <span class="ms-1" v-if="movie.vote_average == 0">Non disponibile</span>
         </li>
-        <li><strong>Tipo:</strong> {{ movie.media_type }}</li>
+        <li><strong>Panoramica:</strong> {{ movie.overview }}</li>
     </ul>
   </div>
 </template>
@@ -54,6 +52,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+    ul{
+        display: none;
+        margin: 0 auto;
+        font-size: 14px;
+        padding: 20px;
+        background-color: #212529;
+        height: 317.8px;
+        overflow: auto;
+
+        li{
+            margin: 10px 0;
+        }
+    }
+
+    #MovieCard{
+        &:hover{
+            img{
+                display: none;
+            }
+
+            ul{
+                display: inline-block;
+            }
+        }
+    }
 
 </style>
