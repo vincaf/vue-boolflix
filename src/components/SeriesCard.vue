@@ -60,7 +60,7 @@ export default {
         font-size: 14px;
         padding: 20px;
         background-color: #212529;
-        height: 317.8px;
+        height: 310px;
         overflow: auto;
 
         li{
@@ -69,7 +69,6 @@ export default {
     }
 
     #SeriesCard{
-        border: 2px solid #fff;
 
         &:hover{
             img{
