@@ -69,6 +69,8 @@ export default {
     }
 
     #SeriesCard{
+        border: 2px solid #fff;
+
         &:hover{
             img{
                 display: none;
