@@ -1,9 +1,7 @@
 <template>
-  <div class="col-2">
-    <ul>
-        <li>
-            <img class="w-100" :src="`${this.imgUrl}${serie.poster_path}`" :alt="serie.title">
-        </li>
+  <div id="SeriesCard" class="col-2">
+    <img class="w-100" :src="`${this.imgUrl}${serie.poster_path}`" :alt="serie.title">
+    <ul class="list-unstyled">
         <li><strong>Titolo:</strong> {{ serie.name }}</li>
         <li><strong>Titolo originale:</strong> {{ serie.original_name }}</li>
         <li v-if="(supportedLanguage.includes(serie.original_language))">
@@ -14,7 +12,7 @@
             <i v-for="vote in getIntegerVote(serie.vote_average)" :key="vote" class="fa-solid fa-star ms-1 text-warning"></i>
             <span class="ms-1" v-if="serie.vote_average == 0">Non disponibile</span>
         </li>
-        <li><strong>Tipo:</strong> {{ serie.media_type }}</li>
+        <li><strong>Panoramica:</strong> {{ serie.overview }}</li>
     </ul>
   </div>
 </template>
@@ -54,6 +52,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+    ul{
+        display: none;
+        margin: 0 auto;
+        font-size: 14px;
+        padding: 20px;
+        background-color: #212529;
+        height: 317.8px;
+        overflow: auto;
+
+        li{
+            margin: 10px 0;
+        }
+    }
+
+    #SeriesCard{
+        &:hover{
+            img{
+                display: none;
+            }
+
+            ul{
+                display: inline-block;
+            }
+        }
+    }
 
 </style>
