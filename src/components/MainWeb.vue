@@ -7,8 +7,8 @@
                 <SeriesList class="py-4" :series="series" v-if="series.length" />
             </div>
         </div>
-
-        <h1 class="text-center text-white mt-4" v-if="movies.length===0 && series.length===0">
+        
+        <h1 class="text-center text-white mt-5" v-if="movies.length===0 && series.length===0">
             {{this.message}}
         </h1>
     </div>
@@ -45,5 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+h1{
+    width: 60%;
+    margin: 0 auto;
+}
 </style>
