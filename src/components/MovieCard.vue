@@ -8,10 +8,12 @@
             <strong>Lingua:</strong> <lang-flag :iso="movie.original_language"/>
         </li>
         <li v-else><strong>Lingua:</strong> {{ movie.original_language }}</li>
-        <li><strong>Voto:</strong>
-            <i v-for="vote in getIntegerVote(movie.vote_average)" :key="vote" class="fa-solid fa-star ms-1 text-warning"></i>
-            <span class="ms-1" v-if="movie.vote_average == 0">Non disponibile</span>
+        <li v-if="movie.vote_average != 0"><strong>Voto: </strong>
+            <i v-for="n in 5" :key="n" 
+            class="fa-star text-warning"
+            :class="n <= getIntegerVote(movie.vote_average) ? 'fa-solid' : 'fa-regular'" ></i>
         </li>
+        <li v-else><strong>Voto: </strong> non disponibile</li>
         <li><strong>Panoramica:</strong> {{ movie.overview }}</li>
     </ul>
   </div>
