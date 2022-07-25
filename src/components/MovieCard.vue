@@ -80,6 +80,9 @@ export default {
 
 <style lang="scss" scoped>
 
+#MovieCard{
+    height: 320px;
+
     img{
         height: 320px;
     }
@@ -102,19 +105,15 @@ export default {
         font-size: 14px;
     }
 
-    #MovieCard{
+    &:hover{
+        img{
+            display: none;
+        }
 
-        height: 320px;
-
-        &:hover{
-            img{
-                display: none;
-            }
-
-            ul{
-                display: inline-block;
-            }
+        ul{
+            display: inline-block;
         }
     }
+}
 
 </style>

@@ -16,12 +16,17 @@
         </li>
         <li v-else><strong>Voto: </strong> non disponibile</li>
         <li><strong>Panoramica:</strong> {{ serie.overview }}</li>
+        <div class="text-center">
+            <button @click="getCast(serie.id)" class="my-2 btn btn-outline-secondary">Scopri il cast</button>
+            <li v-for="member in cast" :key="member.id" class="mt-2"> {{member.name}} </li>
+        </div>
     </ul>
   </div>
 </template>
 
 <script>
 import LangFlag from 'vue-lang-code-flags';
+import axios from 'axios';
 
 export default {
     name: 'SeriesCard',
@@ -37,6 +42,10 @@ export default {
         supportedLanguage: [
                 'am', 'az', 'be', 'bn', 'bg', 'zh', 'ca', 'cs', 'en', 'et', 'fr', 'de', 'ha', 'hi', 'hu', 'it', 'ja', 'jv', 'km', 'ko', 'lv', 'ms', 'mr', 'fa', 'pl', 'pt', 'ro', 'ru', 'es', 'sw', 'ta', 'te', 'th', 'tr', 'uz', 'vi',
             ],
+
+        cast: [],
+        apiKey: '88ad43231db09cad59cba4c08bf2d037',
+        apiUrl: 'https://api.themoviedb.org/3/movie/',
         }
     },
 
@@ -50,12 +59,27 @@ export default {
     methods:{
         getIntegerVote(vote){
             return Math.round(vote / 2);
-        }
+        },
+
+        getCast(id){
+            axios.get(`${this.apiUrl}${id}/credits?api_key=${this.apiKey}`)
+            .then(result => {
+                this.cast = result.data.cast;
+                this.cast.splice(5);
+                console.log(this.cast);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        },
     }
 }
 </script>
 
 <style lang="scss" scoped>
+
+#SeriesCard{
+    height: 320px;
 
     img{
         height: 320px;
@@ -75,19 +99,19 @@ export default {
         }
     }
 
-    #SeriesCard{
+    button{
+        font-size: 14px;
+    }
 
-        height: 320px;
+    &:hover{
+        img{
+            display: none;
+        }
 
-        &:hover{
-            img{
-                display: none;
-            }
-
-            ul{
-                display: inline-block;
-            }
+        ul{
+            display: inline-block;
         }
     }
+}
 
 </style>
