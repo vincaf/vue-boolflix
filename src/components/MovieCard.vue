@@ -106,6 +106,9 @@ export default {
     }
 
     &:hover{
+        transform: scale(1.1);
+        transition: transform 0.8s;
+
         img{
             display: none;
         }
