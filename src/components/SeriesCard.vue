@@ -1,6 +1,7 @@
 <template>
   <div id="SeriesCard" class="col-2">
-    <img class="w-100" :src="`${this.imgUrl}${serie.poster_path}`" :alt="serie.title">
+    <img class="w-100" v-if="serie.poster_path == null || serie.poster == ''" src="http://www.movienewz.com/img/films/poster-holder.jpg" :alt="serie.name">
+    <img class="w-100" v-else :src="`${this.imgUrl}${serie.poster_path}`" :alt="serie.name">
     <ul class="list-unstyled">
         <li><strong>Titolo:</strong> {{ serie.name }}</li>
         <li><strong>Titolo originale:</strong> {{ serie.original_name }}</li>
