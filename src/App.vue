@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderWeb @search="getMedias" />
-    <MainWeb :movies="moviesList" :series="seriesList" />
+    <MainWeb :movies="moviesList" :series="seriesList" :message="message" />
   </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
         seriesList: [],
         apiKey: '88ad43231db09cad59cba4c08bf2d037',
         apiUrl: 'https://api.themoviedb.org/3/search/multi',
+        message: 'Benvenuto! qui potrai cercare facilmente i tuoi film e serie tv preferiti, inserisci cosa vuoi cercare per iniziare.',
     }
   },
 
@@ -42,9 +43,11 @@ export default {
         this.mediaAllList.forEach(element => {
           if(element.media_type == 'movie'){
             this.moviesList.push(element);
-          } else {
+          } else if(element.media_type == 'tv'){
             this.seriesList.push(element);
           }
+
+          this.message = 'Nessun risultato di ricerca trovato.'
         });
 
         console.log(this.moviesList);
