@@ -57,13 +57,17 @@ export default {
 
 <style lang="scss" scoped>
 
+    img{
+        height: 320px;
+    }
+
     ul{
         display: none;
         margin: 0 auto;
         font-size: 14px;
         padding: 20px;
         background-color: #212529;
-        height: 310px;
+        height: 320px;
         overflow: auto;
 
         li{
@@ -72,6 +76,8 @@ export default {
     }
 
     #SeriesCard{
+
+        height: 320px;
 
         &:hover{
             img{
